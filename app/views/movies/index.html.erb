@@ -1,0 +1,16 @@
+
+<label><%= welcome_message %></label><br>
+
+<ul>
+  <% @movies.each do |movie| %>
+      <li class="small_font_size"> <a href="<%= movie_path(movie) %>"><%= movie.name %></a> <br><img src="/assets/icons/smallheartt.fw.png" alt="heart icon"> a chosen favorite by
+        <% movie.users.each do |user| %>
+          <a href="<%= user_movies_path(user.slug)%>" class="user_name"><%= user.name %></a>
+          <% if belongs_to_user_or_admin?(movie) %>
+            <%= link_to ":edit", edit_movie_path(movie) %>
+            <%= link_to ":delete", destroy_movie_path(movie), method: :delete %>
+          <% end %>
+        <% end %>
+      </li>
+  <% end %>
+</ul>

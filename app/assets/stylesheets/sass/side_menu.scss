@@ -1,0 +1,72 @@
+$navcolors: (
+    nav_background: #FF6347,
+    nav_font: orange,
+    nav_hover: black,
+    nav_active: orange,
+    search_hover: black,
+    search_active: orange
+);
+
+$hamburger_icon_hover: "/assets/icons/hamburger_hover.fw.png";
+
+.favmovie-next-to-hamburger {
+    left: 70px;
+    top: 20px;
+    position: absolute;
+}
+
+.favm-next-to-hamburger {
+    @extend .favmovie-next-to-hamburger;
+    font-size: 100%;
+    position: absolute;  
+}
+
+#HamburgerIcon {
+    display: none;
+    &:hover {
+        content: url($hamburger_icon_hover);
+        cursor: pointer;
+    }
+}
+.hidden {
+    display: none;
+}
+#navbar {
+    #menu {
+        background: map-get($map: $navcolors, $key: nav_background);
+        border-color: black;
+        border-style: solid;
+        width: 282px;
+        overflow: hidden;
+        height: 360px;
+        &.admin {
+            height: 453px;
+        }
+        &.access{
+            height: 170px;
+        }
+        position: absolute;
+        top: 75px;
+        left: -282px;
+        ul#menu-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        li.menu-item {
+            font-size: 75%;
+            display: block;
+            color: map-get($map: $navcolors, $key: nav_font);
+            border: {
+                color: black;
+                style: solid;
+            }
+            text-align: center;
+            transform: translateY(0);
+            a {
+                display: block;
+                margin: 10px 10px;
+            }
+        }
+    }
+}

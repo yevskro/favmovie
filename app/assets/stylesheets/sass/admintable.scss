@@ -1,0 +1,23 @@
+$admin_table_colors:(
+    admin_table_background: #808080,
+    admin_table_header_background: #FF6347,
+    admin_table_header_font: orange,
+    admin_table_data_background: #808080
+);
+
+table#admin-user-options {
+    margin: auto auto;
+
+    background-color: map-get($map: $admin_table_colors, $key: admin_table_background);   
+    th {
+        background-color: map-get($map: $admin_table_colors, $key: admin_table_header_background);
+        color: map-get($map: $admin_table_colors, $key: admin_table_header_font); 
+        text-align: center;  
+    }
+    td {
+        background-color: map-get($map: $admin_table_colors, $key: admin_table_data_background);
+    }
+    &, & th, & td{
+        border: 3px solid map-get($map: $admin_table_colors, $key: admin_table_header_font);
+    }
+}

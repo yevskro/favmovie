@@ -1,0 +1,38 @@
+
+<div class="user_access_block">
+  <h4><strong>FavMovie!! Sign Up</strong></h4>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="field">
+      <%= f.label :name %> <br>
+      <%= f.text_field :name, autocomplete: "off", class: "user-access" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %> <br>
+      <%= f.email_field :email, autocomplete: "off", class: "user-access" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %> <br>
+      <% if @minimum_password_length %>
+        <em> (<%=@minimum_password_length%> characters minimum)</em>
+        <br>
+      <% end %>
+      <%= f.password_field :password, autocomplete: "off", class: "user-access" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %> <br>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "user-access" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Sign up" %>
+    </div>
+  <% end %>
+</div>
+<br>
+<%= render "users/shared/links" %>

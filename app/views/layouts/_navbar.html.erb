@@ -1,0 +1,51 @@
+    <div id="navbar">
+      <img src="/assets/icons/hamburger.fw.png" alt="hamburger" id="HamburgerIcon" class="left">
+      <% if user_signed_in? %>
+        <ul>
+          <% if current_user.admin? %>
+            <li class="left"><%= link_to "Admin", users_path, class: "admin" %></li>
+          <% end %>
+          <li class="left"><%= link_to "All Movies", movies_path %></li>
+          <li class="left"><%= link_to "My Movies", user_path(current_user.slug) %></li>
+          <li class="left"><%= link_to "Create FavMovie", new_movie_path %></li>
+        </ul>
+        <%= link_to "FavMovies", movie_top_rating_path(Movie.percentage_to_number_of_movies(10)), class: "favmovies-title centered" %>
+        <ul>
+          <li class="right"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "userlogin" %></li>
+          <input class="right" id="Search-Bar" type="text"></input>
+          <img src="/assets/icons/searchicon.fw.png" alt="Search" id="SearchIcon" class="right">
+          <li class="right" id="Search">search </li> 
+        </ul>
+      <% else %>
+        <%= link_to "FavMovies", movie_top_rating_path(Movie.percentage_to_number_of_movies(10)), class: "favmovies-title centered" %>
+        <ul>
+          <li class="right"><%= link_to "Login", new_user_session_path, class: "userlogin" %></li>
+          <li class="right"><%= link_to "Signup",new_user_registration_path, class: "userlogin" %></li>
+          <input class="right" id="Search-Bar" type="text"></input>
+          <img src="/assets/icons/searchicon.fw.png" alt="Search" id="SearchIcon" class="right">
+          <li class="right not-logged-in" id="Search">search </li> 
+        </ul>
+      <% end %>
+      <% if user_signed_in? %>
+        <% if current_user.admin? %>
+          <div id="menu" class="admin">
+            <ul id="menu-list">
+              <li class="menu-item"><%= link_to "Admin", users_path %></li>
+        <% else %>
+          <div id="menu">
+            <ul id="menu-list">
+        <% end %>
+          <li class="menu-item"><%= link_to "All Movies", movies_path %></li>
+          <li class="menu-item"><%= link_to "My Movies", user_path(current_user.slug) %></li>
+          <li class="menu-item"><%= link_to "Create FavMovie", new_movie_path %></li>
+          <li class="menu-item"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "userlogin" %></li>
+        </ul>
+      <% else %>
+        <div id="menu" class="access">
+        <ul id="menu-list">
+          <li class="menu-item"><%= link_to "Login", new_user_session_path, class: "userlogin" %></li>
+          <li class="menu-item"><%= link_to "Signup",new_user_registration_path, class: "userlogin" %></li>
+        </ul>
+      <% end %>
+      </div>
+    </div>

@@ -1,0 +1,7 @@
+<label> Genres: </label> <br>
+<%= collection_check_boxes(:movie, :genres_names, Genre.all, :name, :name) do |b| %>
+   <%= b.label { b.check_box(checked: genre_belongs_to_movie?(movie, b.value)) + b.value} %> <br>
+<% end %>
+<div class="field">
+  <label>New Genre? </label><input type="text" name="movie[genres_names][]" placeholder="new genre" class="movie-text-field"> <br></br>
+</div>

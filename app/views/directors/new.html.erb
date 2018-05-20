@@ -1,0 +1,11 @@
+
+<%= form_for @director do |f| %>
+  <input type="hidden" name="movie_id" value="<%= @movie.id %>">
+  <label>Director Info</label> <br>
+
+  <div class="field">
+    <%= member_fields(f, :director) %>
+  </div>
+
+  <%= f.submit "add Director" %> <br>
+<% end %>

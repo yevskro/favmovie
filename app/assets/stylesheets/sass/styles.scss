@@ -1,0 +1,201 @@
+$appcolors: (
+    list_font: #808080,
+    movie_text_field_font: #808080,
+    movie_text_field_background: black, 
+    link:#FF7F00,
+    field_input_font: #FF6347,
+    username_font: #FF6347,
+    button_font: orange,
+    button_background: #FF6347,
+    button_hover_background: black,
+    table_font: orange,
+    movie_input_background: black,
+    error: red,
+    login_field_background: white,
+    member_field_font: #696969,
+    page_font: #FF8000,
+    page_background: black,
+    devise_access_background: orange,
+    devise_access_font: black,
+    devise_access_border: #FF6347,
+    special_orange_font: #FF7F00,
+);
+
+$background_image: "/assets/icons/background4.jpg";
+$star_icon: '/assets/icons/user1.fw.png';
+
+$small_font_size: 15px;
+$extra_small_font_size: 12px;
+
+@import "navbar.scss";
+@import "admintable.scss";
+@import "side_menu.scss";
+
+html {
+    height: 100%;
+    body {
+        height: 100%;
+        margin:0;
+        padding:0;
+        font: { 
+            family: helvetica,arial;
+            size: 35px;
+        }
+        color: map-get($map: $appcolors, $key: page_font);
+        background: {
+            color: map-get($map: $appcolors, $key: page_background);
+            image: url($background_image);
+            repeat: no-repeat;
+            attachment: fixed;
+            size: cover;
+            position: center;            
+        }
+
+        .container-fluid {
+            height:100%;
+            display:table;
+            width: 100%;
+            padding: 0;
+        }
+
+        .row-fluid {
+            height: 100%; 
+            display:table-cell; 
+            vertical-align: middle;
+        }
+
+        .centering {
+          float:none;
+          margin:100px auto;
+        }
+    }
+}
+
+a { 
+    color: map-get($appcolors, link);
+}
+
+.fields_with_errors {
+    display: inline-block;
+    color: map-get($map: $appcolors, $key: error);
+    border: 2px solid map-get($map: $appcolors, $key: error);
+    font-size:25px;
+    input {
+        display: inline;
+        border: 8px solid map-get($map: $appcolors, $key: error);
+        border-radius: 5px;
+    }
+}
+
+
+ul{
+    display: inline;
+}
+  
+li {
+    list-style-type: none;
+    color: map-get($map: $appcolors, $key: list_font);
+}
+  
+.field {
+    input{
+        border-style: double;
+        color: map-get($map: $appcolors, $key: field_input_font);
+        width: 439px;
+        @media screen and (max-width: 485px) {
+            width: 400px;
+        }
+        @media screen and (max-width: 463px){
+            width: 300px;
+        }
+        @media screen and (max-width: 411px){
+            width: 250px;
+        }
+    }
+}
+
+.user_name{
+    color: map-get($map: $appcolors, $key: username_font);
+}
+
+
+div.field {
+    input.user-access{
+        background:url($star_icon) left no-repeat;
+        background-color: map-get($map: $appcolors, $key: login_field_background);
+        padding-left: 30px;
+        width: 75%;
+        -webkit-appearance: none;
+        &:-webkit-autofill{
+            padding-left: 0;
+        }
+    }
+}
+
+.movie-text-field{
+    background-color: map-get($map: $appcolors, $key: movie_text_field_background);
+    color: map-get($map: $appcolors, $key: movie_text_field_font);
+}
+
+input.favmovie-button {
+    background-color: map-get($map: $appcolors, $key: button_background);
+    color: map-get($map: $appcolors, $key: button_font);
+    border: {
+        style: solid;
+        color: map-get($map: $appcolors, $key: button_background);
+        width: 12px 20px 20px 20px;
+    }
+    width: 439px;
+    @media screen and (max-width: 485px) {
+        width: 400px;
+    }
+    @media screen and (max-width: 463px){
+        width: 300px;
+    }
+    @media screen and (max-width: 411px){
+        width: 250px;
+    }
+    height: 100px;
+    font: {
+        weight: bold;
+        size: 100%;
+    }
+
+    &:hover{
+        background-color: map-get($map: $appcolors, $key: button_hover_background)
+    }
+}
+
+.member_description{
+    color: map-get($map: $appcolors, $key: member_field_font);
+}
+ 
+ .small_font_size {
+   font-size: $small_font_size;
+}
+ 
+ .extra_small_font_size {
+   font-size: $extra_small_font_size;
+}
+
+/* devise styling */
+.user_access_block {
+    padding: 25px 25px 25px 25px;
+    background-color: map-get($map: $appcolors, $key: devise_access_background);
+    color: map-get($map: $appcolors, $key: devise_access_font);
+    border: 8px solid map-get($map: $appcolors, $key: devise_access_border);
+    display: inline-block;
+  }
+/******************/
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.orange-font {
+    color: map-get($map: $appcolors, $key: special_orange_font);
+}

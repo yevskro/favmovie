@@ -1,0 +1,12 @@
+<%= form_for movie do |f|%>
+  <%= add_hidden_id_tag_if_movie_update(movie) %>
+  <%= render "movie_form", movie: movie %>
+  <%= render "directors_form", movie: movie, form_builder: f %>
+  <%= render "screenwriters_form", movie: movie, form_builder: f %>
+  <%= render "actors_form", movie: movie, form_builder: f %>
+  <%= render "genres_form", movie: movie %>
+  <%= render "comment_form", movie: movie %>
+  <div class="field">
+    <%= f.submit proper_submit_title_for_create_and_edit(movie), class: "favmovie-button" %>
+  </div>
+<% end %>

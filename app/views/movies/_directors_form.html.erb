@@ -1,0 +1,8 @@
+<br><label>Director Info</label>
+<%= members_nested_form(movie, :directors, form_builder) do |nested_builder, count| %>
+  <% ( %><br><label><%= delete_member_link_if_update(movie, :director, count - 1) %></label>
+  <div class="field">
+    <%= member_fields(nested_builder, :director) %>
+  </div><% ) %>
+<% end %>
+<%= add_member_link_if_update(movie, :director) %> <br>

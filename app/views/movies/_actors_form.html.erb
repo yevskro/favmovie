@@ -1,0 +1,8 @@
+<label>Awesome Actor To Watch</label>
+<%= members_nested_form(movie, :actors, form_builder) do |nested_builder, count| %>
+  <% ( %><br><label><%= delete_member_link_if_update(movie, :actor, count - 1) %></label>
+  <div class="field">
+    <%= member_fields(nested_builder, :actor) %>
+  </div><% ) %>
+<% end %>
+<%= add_member_link_if_update(movie, :actor) %> <br

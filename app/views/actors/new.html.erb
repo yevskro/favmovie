@@ -1,0 +1,11 @@
+
+<%= form_for @actor do |f| %>
+  <input type="hidden" name="movie_id" value="<%= @movie.id %>">
+  <label>Actor Info</label> <br>
+
+  <div class="field">
+    <%= member_fields(f, :actor) %>
+  </div>
+
+  <%= f.submit "add Actor" %> <br>
+<% end %>

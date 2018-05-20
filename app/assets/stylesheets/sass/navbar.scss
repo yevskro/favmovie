@@ -1,0 +1,173 @@
+$navcolors: (
+    nav_background: #FF6347,
+    nav_font: orange,
+    nav_hover: black,
+    nav_active: orange,
+    search_hover: black,
+    search_active: orange
+);
+
+$search_icon_active: "/assets/icons/searchicon.fw.png";
+$search_icon_hover: "/assets/icons/searchiconhover.fw.png";
+
+#navbar {
+    height: 100px;
+    @media screen and (max-width: 1346px){
+        height: 75px;
+    }
+    background-color: map-get($map: $navcolors, $key: nav_background);
+    padding: 1% 1% 1% 1%;
+    border-radius: 0;
+    position: fixed;
+    width: 100%;
+    display: block;
+    ul {
+        list-style-type: none;
+        li {
+            font-size: 100%;
+            @media screen and (max-width: 1910px){
+                font-size: 95%;
+            }
+            @media screen and (max-width: 1880px){
+                font-size: 92%;
+                transform: translateY(5%);
+            }
+            @media screen and (max-width: 1805px){
+                font-size: 89%;
+                transform: translateY(7%);
+            }
+            @media screen and (max-width: 1776px){
+                font-size: 85%;
+                transform: translateY(10%);
+            }
+            @media screen and (max-width: 1680px){
+                font-size: 80%;
+                transform: translateY(30%);
+            }
+            @media screen and (max-width: 1609px){
+                font-size: 75%;
+                transform: translateY(33%);
+            }
+            @media screen and (max-width: 1529px){
+                font-size: 65%;
+                transform: translateY(40%);
+            }
+            @media screen and (max-width: 1346px){
+                font-size: 50%;
+                transform: translateY(49%);
+            }
+            @media screen and (max-width: 1094px){
+                font-size: 45%;
+                transform: translateY(60%);
+            }
+            @media screen and (max-width: 1054px){
+                display: none;
+            }
+            font-weight: bold;
+            color: map-get($map: $navcolors, $key: nav_font);
+            margin: {
+                left: 0.16%;
+                right: 0.16%;
+            }
+            a {
+                color: map-get($map: $navcolors, $key: nav_font);
+                padding: 14px 14px;
+                text-decoration: none;
+                &.admin {
+                    color: map-get($map: $navcolors, $key: nav_font);
+                    padding: 10px 10px;
+                    text-decoration: none;
+                    font-size: 60%;
+                }
+                &.userlogin {
+                    font-size: 70%;
+                }
+                @media screen and (max-width: 1346px){
+                    &.admin{
+                        font-size:70%;
+                    }
+                    &.userlogin{
+                        font-size: 80%;
+                    }
+                }
+                @media screen and (max-width: 1094px){
+                    &.admin{
+                        font-size: 70%;
+                    }
+                    &.userlogin{
+                        font-size: 80%;
+                    }
+                }
+                &:hover{
+                    background-color: map-get($map: $navcolors, $key: nav_hover);
+                }
+            }
+        }
+    }
+    a.favmovies-title {
+        font-size: 155%;
+        @media screen and (max-width: 1513px){
+            font-size: 100%;   
+        }
+        @media screen and (max-width: 1117px){
+            font-size: 85%;
+        }
+        @media screen and (max-width: 1054px){
+            font-size: 149%;
+        }
+        @media screen and (max-width: 603px){
+            font-size: 75%;
+        }
+        font: {
+            family: Impact;
+            align: center;
+        }
+        float: none;
+        align-content: center;
+        text-decoration: none;
+        background-color: map-get($map: $navcolors, $key: nav_background);
+        color: map-get($map: $navcolors, $key: nav_font);
+        &.centered{
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        &:hover {
+            background-color: map-get($map: $navcolors, $key: nav_background);
+            color: map-get($map: $navcolors, $key: nav_hover);
+        }
+        &:active {
+            color: map-get($map: $navcolors, $key: nav_active);
+        }
+    }
+} 
+
+#Search {
+    &:hover{
+        color: map-get($map: $navcolors, $key: search_hover);
+    }
+    &:active{
+        color: map-get($map: $navcolors, $key: search_active);
+    }
+    &.not-logged-in{
+        @media screen and (max-width: 1194px){
+            display: none;
+        }
+    }
+}
+
+#SearchIcon {
+    margin: 5px 2px;
+    &:active {
+        content: url($search_icon_active);
+    }
+    &:hover {
+        content: url($search_icon_hover);
+        cursor: pointer;   
+    }
+}
+
+#Search-Bar{
+    width: 22%;
+}

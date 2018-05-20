@@ -1,0 +1,20 @@
+    <script id="search-template" type="text/x-lodash-template">
+      <div class="found">
+        <%% if(movies.length === 0) {%>
+          <span>No movies found with that title!</span>
+        <%%} else { %>
+          <ul>
+          <li class="small_font_size"><span class="orange-font"><%%-movies[0].name%></span><br><img src="/assets/icons/smallheartt.fw.png" alt="heart icon"> a chosen favorite by <a class="user_name" href=http://localhost:3000/users/<%%-movies[0].user%>/movies><%%-movies[0].user%></a></li>
+          <%% for(let i = 1; i < movies.length; i++){%>
+            <%% if(movies[i-1].name !== movies[i].name) { %>
+              </ul>
+              <ul>
+                <li class="small_font_size"><span class="orange-font"><%%-movies[i].name%></span><br><img src="/assets/icons/smallheartt.fw.png" alt="heart icon"> a chosen favorite by <a class="user_name" href=http://localhost:3000/users/<%%-movies[i].user%>/movies><%%-movies[1].user%></a></li> 
+            <%% } else { %>
+              <li class="small_font_size"><img src="/assets/icons/smallheartt.fw.png" alt="heart icon"><a class="user_name" href=http://localhost:3000/users/<%%-movies[i].user%>/movies><%%-movies[i].user%></a></li> 
+            <%% } %>
+          <%% }%>
+          </ul>
+        <%% }%>
+      </div>
+    </script>

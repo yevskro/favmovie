@@ -1,0 +1,9 @@
+<% if members.size != 0 %>
+  <label class="member_description"><%="#{members.name}(s)"%>:</label><br>
+  <ul>
+    <% members.each do |member| %>
+      <li class="small_font_size"><a href="/<%=members.name.downcase.pluralize %>/<%=member.slug%>"><%=member.name%></a><br>Birth: <%=member.birth%></li>
+    <% end %>
+  </ul>
+  <br>
+<% end %>

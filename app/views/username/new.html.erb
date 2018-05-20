@@ -1,0 +1,10 @@
+
+<%= render "layouts/error" %>
+
+<div class="field">
+  <%= form_tag "/username" do%>
+    <label>Register a Username with us :)</label><br>
+    <input type="text" name="name" placeholder="username goes here"> <br>
+    <%= button_tag "register" %>
+  <% end %>
+</div>

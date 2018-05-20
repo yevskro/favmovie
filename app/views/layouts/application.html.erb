@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <%= render "layouts/header" %>
+
+  <body>
+
+    <%= render "layouts/navbar" %>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="centering text-center">
+              <%= render "layouts/error" %>
+
+               <%= yield %>
+            </div>
+        </div>
+    </div>
+
+    <%= render "layouts/search_template" %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  </body>
+</html>

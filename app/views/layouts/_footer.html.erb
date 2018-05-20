@@ -1,0 +1,15 @@
+<br><footer>
+  <% if user_signed_in? %>
+    <% if current_user.admin? %>
+      <label> <%= link_to "All Users", users_path %> | </label>
+    <% end %>
+    <label> <%= link_to "All Movies", movies_path %> | </label>
+    <label> <%= link_to "My Movies", user_path(current_user.slug) %> | </label>
+    <label> <%= link_to "Create FavMovie!!", new_movie_path %></label> <br>
+    <%= link_to "find top %10 from all favorite rotton tomatoe rated", movie_top_rating_path(Movie.percentage_to_number_of_movies(10)), class: "extra_small_font_size" %> <br>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "small_font_size" %>
+  <% else %>
+    <%= link_to "Login", new_user_session_path, class: "small_font_size" %><span class = "small_font_size"> | </span>
+    <%= link_to "Signup",new_user_registration_path, class: "small_font_size" %>
+  <% end %>
+</footer>

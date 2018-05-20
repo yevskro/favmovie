@@ -1,0 +1,8 @@
+<label>Screenwriter Info</label>
+<%= members_nested_form(movie, :screenwriters, form_builder) do |nested_builder, count| %>
+  <% ( %><br><label><%= delete_member_link_if_update(movie, :screenwriter, count - 1) %></label>
+  <div class="field">
+    <%= member_fields(nested_builder, :screenwriter) %>
+  </div><% ) %>
+<% end %>
+<%= add_member_link_if_update(movie, :screenwriter) %> <br>

@@ -1,0 +1,10 @@
+<label>Film Info</label> <br>
+<div class="field">
+  <%= fields_for movie do |b| %>
+    <%= b.text_field :name, placeholder: "film title", class: "movie-text-field" %> <br>
+    <%= b.text_field :year, placeholder: "film year", class: "movie-text-field" %> <br>
+    <%= b.submit "Search", class: "favmovie-button" %> <br>
+    <%= b.text_field :ww_gross, placeholder: "world wide gross", class: "movie-text-field" %> <br>
+    <%= b.text_field :rt_rating, placeholder: "rotton tomatoe rating", class: "movie-text-field" %> <br>
+  <% end %>
+</div>

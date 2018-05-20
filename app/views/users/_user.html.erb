@@ -1,0 +1,10 @@
+
+<%= form_for user do |f| -%>
+  <tr>
+    <td><%= link_to user.name, user_path(user) %></td>
+    <td><%= f.select(:role, User.roles.keys.map{|role| [role.titleize , role]}) %></td>
+    <td><%= f.submit "Change Role" %></td>
+    <td><%= link_to ":delete", destroy_user_path(user), method: :delete %></td>
+  </tr>
+<% end %>
+

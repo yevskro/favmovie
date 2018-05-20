@@ -1,0 +1,13 @@
+<% if flash.alert %>
+  <div class="fields_with_errors">
+      <% if flash.alert.is_a?(Array) %>
+        <% flash.alert.each do |alert| %>
+          <%= alert %> <br>
+        <% end %>
+      <% else %>
+        <%= flash[:alert] %>
+        <br>
+      <% end %>
+  </div>
+  <br>
+<% end %>

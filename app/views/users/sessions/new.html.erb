@@ -1,0 +1,35 @@
+<div class="user_access_block">
+  <h4><strong>FavMovie!! Log In</strong></h4>
+
+  <% if flash.alert %>
+    <div class="fields_with_errors">
+        <%= flash.alert %>
+    </div>
+  <% end %>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true, class: "user-access" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, class: "user-access" %>
+    </div>
+
+    <% if devise_mapping.rememberable? -%>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end -%>
+
+    <div class="actions">
+      <%= f.submit "Log in" %>
+    </div>
+  <% end %>
+
+</div>
+<br>
+<%= render "users/shared/links" %>

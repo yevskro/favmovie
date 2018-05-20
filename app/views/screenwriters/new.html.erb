@@ -1,0 +1,12 @@
+
+<%= form_for @screenwriter do |f| %>
+  <input type="hidden" name="movie_id" value="<%= @movie.id %>">
+  <label>Screenwriter Info</label> <br>
+  
+  <div class="field">
+    <%= member_fields(f, :screenwriter) %>
+  </div>
+
+
+  <%= f.submit "add Screenwriter" %> <br>
+<% end %>

@@ -1,0 +1,25 @@
+
+<label><%= @movie.name %></label>
+
+
+<%= if_owner_show_movie_edit_delete_links(@owner, @movie) %>
+
+<br>
+
+<label>Global Gross: <%=@movie.ww_gross%></label><br>
+<label>Rotten Tomatoe rating: %<%=@movie.rt_rating%></label><br></br>
+
+
+<%= render "members_show", members: @movie.directors %>
+<%= render "members_show", members: @movie.screenwriters %>
+<%= render "members_show", members: @movie.actors %>
+
+
+<label class="member_description">Genre(s):</label>
+<ul>
+  <% @movie.genres.each do |genre| %>
+    <li class="small_font_size"><a href="/genres/<%=genre.slug%>"><%=genre.name%></a></li>
+  <% end %>
+</ul>
+
+<label class="comment"><%= @movie.comment %></label>
